@@ -34,4 +34,5 @@
 
 - [ ] integrate shell and "open with Mimir" option
 - [ ] grammarly integration with electron extensions
-- [ ] figure out wkhtmltopdf with mac and linux (if not, add a message to use the print option)
+- [x] figure out wkhtmltopdf with mac and linux (if not, add a message to use the print option)
+- [ ] icon

@@ -4,17 +4,6 @@
   "version": "1.0.0",
   "description": "Mimir Desktop",
   "main": ".webpack/main",
-  "build": {
-    "extraFiles": [
-      {
-        "from": "build/mac/bin",
-        "to": "Resources/bin",
-        "filter": [
-          "**/*"
-        ]
-      }
-    ]
-  },
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",

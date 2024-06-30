@@ -23,7 +23,7 @@ function getBinariesPath() {
   const { isPackaged } = app;
   const binariesPath =
     IS_PROD && isPackaged
-      ? path.join(process.resourcesPath, './bin')
+      ? path.join(process.resourcesPath, `./${getPlatform()}`)
       : path.join(app.getAppPath(), 'resources', getPlatform());
   return binariesPath;
 } 
