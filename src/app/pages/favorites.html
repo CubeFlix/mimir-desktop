@@ -1,0 +1,46 @@
+<div class="sidebar-container">
+    <div class="sidebar">
+        <div class="mimir-title">
+            <h1>Mimir</h1>
+        </div>
+        <div class="sidebar-chooser">
+            <div class="sidebar-chooser-option">
+                <a href="">Recent Files</a>
+            </div>
+            <div class="sidebar-chooser-option sidebar-chooser-selected">
+                Favorites
+            </div>
+            <div class="sidebar-chooser-option">
+                <a href="settings">Settings</a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-body">
+        <div class="documents">
+            <div class="document-list-header">
+                <div class="left">
+                    <h2>
+                        Favorites
+                    </h2>
+                </div>
+                <div class="right">
+                    <div class="sort-by">
+                        Sort by: 
+                        <select id="sort-by" name="sort-by" selected="last-favorited">
+                            <option value="last-favorited">Last favorited</option>
+                            <option value="last-edited">Last edited</option>
+                            <option value="date-created">Date created</option>
+                        </select>
+                    </div>
+                    <button class="button button-primary" id="new-button">New</button>
+                    <button class="button button-secondary" id="open-button">Open</button>
+                </div>
+            </div>
+            <div class="document-list" id="documents">
+                <table class="document-list-table">
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div> 
+</div>

@@ -1,0 +1,71 @@
+<div class="tabview" style="width: 300px;">
+    <div class="tabview-top-bar">
+        <div class="tabview-buttons">
+            <button id="tabview-html-button">HTML</button>
+            <button id="tabview-pdf-button">PDF</button>
+            <button id="tabview-plaintext-button">Plaintext</button>
+        </div>
+        <div class="tabview-close-button">
+            <button id="tabview-close-button">✖</button>
+        </div>
+    </div>
+    <div class="tabview-tabs">
+        <div class="tabview-tab" id="tabview-html-tab">
+            <div class="export-form">
+                <div>
+                    <input type="checkbox" id="include-title" name="include-title" />
+                    <label for="include-title">Include title</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="default-styling" name="default-styling" checked />
+                    <label for="default-styling">Apply default styling</label>
+                </div>
+                <button id="export-html-button" class="button button-primary">Export HTML</button>
+            </div>
+        </div>
+        <div class="tabview-tab" id="tabview-pdf-tab">
+            <div class="export-form">
+                <div>
+                    <label for="page-size">Page size</label>
+                    <select id="page-size" name="page-size" selected="A4">
+                        <option value="legal">Legal</option>
+                        <option value="letter">Letter</option>
+                        <option value="ledger">Ledger</option>
+                        <option value="tabloid">Tabloid</option>
+                        <option value="executive">Executive</option>
+                        <option value="A0">A0</option>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="A3">A3</option>
+                        <option value="A4">A4</option>
+                        <option value="A5">A5</option>
+                        <option value="A6">A6</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="zoom-factor">Zoom factor (%)</label>
+                    <input type="number" id="zoom-factor" name="zoom-factor" min="5" max="300" value="100" />
+                </div>
+                <div>
+                    <input type="checkbox" id="default-header" name="default-header" />
+                    <label for="default-header">Apply default header</label>
+                </div>
+                <button id="export-pdf-button" class="button button-primary">Export PDF</button>
+                <span id="loading-text"></span>
+            </div>
+        </div>
+        <div class="tabview-tab" id="tabview-plaintext-tab">
+            <div class="export-form">
+                <div>
+                    <input type="checkbox" id="word-wrap" name="word-wrap" />
+                    <label for="word-wrap">Word wrap</label>
+                </div>
+                <div>
+                    <label for="wrap-width">Wrap width</label>
+                    <input type="number" id="wrap-width" name="wrap-width" min="1" value="100" />
+                </div>
+                <button id="export-plaintext-button" class="button button-primary" style="width: fit-content;">Export Plaintext</button>
+            </div>
+        </div>
+    </div>
+</div>
