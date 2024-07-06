@@ -33,6 +33,6 @@
 - [x] verify document content validity
 
 - [ ] integrate shell and "open with Mimir" option
-- [ ] grammarly integration with electron extensions
+- [ ] grammarly integration with electron extensions [DOES NOT WORK]
 - [x] figure out wkhtmltopdf with mac and linux (if not, add a message to use the print option)
 - [ ] icon
