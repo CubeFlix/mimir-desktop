@@ -36,6 +36,8 @@ class CfxRouter {
         this.root = element;
         this.routes = [];
         this.errorHandlers = {};
+        this.onServe = null;
+        this.serving = false;
 
         // Current URL.
         this.url = "";
@@ -53,15 +55,20 @@ class CfxRouter {
     }
 
     // Serve the router.
-    serve() {
+    async serve() {
         // Bind to any location changes. 
         window.addEventListener("click", this.handleLinkClick.bind(this));
         window.addEventListener("popstate", this.handlePopState.bind(this));
 
         if (window.sessionStorage.getItem("cfx-router-url")) {
-            this.navigate(window.sessionStorage.getItem("cfx-router-url"));
+            await this.navigate(window.sessionStorage.getItem("cfx-router-url"));
         } else {
-            this.navigate("");
+            await this.navigate("");
+        }
+        
+        this.serving = true;
+        if (this.onServe) {
+            this.onServe(this);
         }
     }
 
@@ -113,7 +120,7 @@ class CfxRouter {
         this.route = null;
         this.url = url;
         window.sessionStorage.setItem("cfx-router-url", url);
-        this.render();  
+        await this.render();
     }
 
     // Match a URL to a route.

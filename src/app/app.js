@@ -31,6 +31,12 @@ class App {
 
     // Initialize the app.
     async init() {
+        // Prepare to receive the command line arguments.
+        window.mimirApi.on('argv', function (_, argv) {
+            this.argv = argv;
+            this.handleCommandLine();
+        }.bind(this));
+
         // Init.
         await window.mimirApi.init();
 
@@ -50,6 +56,31 @@ class App {
     // Display an error.
     error(data) {
         this.router.displayError("An error occurred in the app.", `Error: ${data}`);
+    }
+
+    // Handle command line arguments.
+    handleCommandLine() {
+        const router = this.router;
+        if (this.argv.length == 2) {
+            const path = this.argv[1];
+            if (this.router.serving) {
+                openPath(path);
+            } else {
+                this.router.onServe = (router) => {
+                    openPath(path);
+                };
+            }
+        }
+
+        async function openPath(path) {
+            try {
+                await window.mimirApi.info(path);
+            } catch (e) {
+                await window.mimirApi.message({ message: `Could not open ${path}. Check that the file exists and is a valid Mimir document.`, type: "error" });
+                return;
+            }
+            router.navigate("edit/" + path);
+        }
     }
 }
 

@@ -36,6 +36,7 @@ class AppState {
         this.recentFiles = [];
         this.favorites = [];
         this.settings = {};
+        this.didInit = false;
 
         this.storeLock = new ReadWriteLock();
         this.settingsLock = new ReadWriteLock();
@@ -141,6 +142,14 @@ class AppState {
 async function init() {
   await this.loadStore();
   this.loadSettings();
+
+  // Send the command line arguments.
+  this.mainWindow.webContents.send('mimir:argv', process.argv);
+  this.didInit = true;
+}
+
+function didInit() {
+  return this.didInit;
 }
 
 function assert(predicate, message) {
@@ -998,6 +1007,7 @@ module.exports = {
     AppState: AppState,
     commands: {
         init,
+        didInit,
         open,
         save,
         info,

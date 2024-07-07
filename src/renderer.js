@@ -4,9 +4,9 @@ import App from "./app/app.js";
 import "./index.css";
 
 // Initialization function.
-function init() {
+async function init() {
     const app = new App();
-    app.init();
+    await app.init();
 }
 
 // Initialize the app.

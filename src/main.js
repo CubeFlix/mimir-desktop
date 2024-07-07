@@ -18,6 +18,7 @@ const createWindow = () => {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
   });
+  state.mainWindow = mainWindow;
 
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
@@ -55,6 +56,7 @@ app.on('window-all-closed', () => {
 // Mimir API functions.
 app.whenReady().then(() => {
   ipcMain.handle('mimir:init', commands.init.bind(state));
+  ipcMain.handle('mimir:didInit', commands.didInit.bind(state));
   ipcMain.handle('mimir:open', commands.open.bind(state));
   ipcMain.handle('mimir:save', commands.save.bind(state));
   ipcMain.handle('mimir:info', commands.info.bind(state));

@@ -5,6 +5,7 @@ const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('mimirApi', {
   init: () => ipcRenderer.invoke('mimir:init'),
+  didInit: () => ipcRenderer.invoke('mimir:didInit'),
   open: (path) => ipcRenderer.invoke('mimir:open', path),
   save: (path, doc) => ipcRenderer.invoke('mimir:save', path, doc),
   info: (path) => ipcRenderer.invoke('mimir:info', path),
