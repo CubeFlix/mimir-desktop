@@ -28,12 +28,23 @@ function getBinariesPath() {
   return binariesPath;
 } 
 
+function getResourcesPath() {
+  const IS_PROD = process.env.NODE_ENV === 'production';
+  const { isPackaged } = app;
+  const binariesPath =
+    IS_PROD && isPackaged
+      ? path.join(process.resourcesPath)
+      : path.join(app.getAppPath(), 'resources');
+  return binariesPath;
+}
+
 const wkHtmlToPdf = path.join(getBinariesPath(), {'win': 'wkhtmltopdf.exe'}[getPlatform()]);
 const wkHtmlToPdfVersion = '0.12.6';
 
 module.exports = {
     getPlatform,
     getBinariesPath,
+    getResourcesPath,
     wkHtmlToPdf,
     wkHtmlToPdfVersion
 }
