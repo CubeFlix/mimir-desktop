@@ -50,7 +50,7 @@ async function save() {
     saveDocument(path, doc);
     unsaved = false;
     showunsaved.style.display = "none";
-    router.setTitle(`•︎ ${path ? path.split(/[\/\\]+/g).slice(-1)[0] : "Untitled"} - Mimir Desktop`);
+    router.setTitle(`${path ? path.split(/[\/\\]+/g).slice(-1)[0] : "Untitled"} - Mimir Desktop`);
 
     // Display the favorite star now.
     updateFavorite();
