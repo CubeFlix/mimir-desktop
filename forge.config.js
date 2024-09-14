@@ -9,7 +9,8 @@ module.exports = {
       "resources/mac",
       "resources/linux",
       "resources/icon.png"
-    ]
+    ],
+    icon: "./resources/icon"
   },
   rebuildConfig: {},
   makers: [
