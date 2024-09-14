@@ -36,3 +36,5 @@
 - [ ] grammarly integration with electron extensions [DOES NOT WORK]
 - [x] figure out wkhtmltopdf with mac and linux (if not, add a message to use the print option)
 - [ ] icon
+- [ ] saving is not removing unsaved dot in window bar
+- [ ] AppState.window is undefined

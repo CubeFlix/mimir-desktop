@@ -33,7 +33,7 @@ function getResourcesPath() {
   const { isPackaged } = app;
   const binariesPath =
     IS_PROD && isPackaged
-      ? path.join(process.resourcesPath)
+      ? process.resourcesPath
       : path.join(app.getAppPath(), 'resources');
   return binariesPath;
 }

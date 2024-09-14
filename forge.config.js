@@ -7,7 +7,8 @@ module.exports = {
     extraResource: [
       "resources/win",
       "resources/mac",
-      "resources/linux"
+      "resources/linux",
+      "resources/icon.png"
     ]
   },
   rebuildConfig: {},

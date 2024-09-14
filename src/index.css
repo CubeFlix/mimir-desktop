@@ -477,6 +477,22 @@ a {
   gap: 7px;
 }
 
+select {
+  border: 1px solid silver;
+  background: none;
+  font-family: Inter;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+input[type="number"] {
+  border: 1px solid silver;
+  background: none;
+  font-family: Inter;
+  padding: 3px;
+  border-radius: 5px;
+}
+
 @media (prefers-color-scheme: dark) {
   /* TODO */
 }
