@@ -1,6 +1,6 @@
 {
   "name": "mimir-desktop",
-  "productName": "mimir-desktop",
+  "productName": "Mimir Desktop",
   "version": "1.0.0",
   "description": "Mimir Desktop",
   "main": ".webpack/main",

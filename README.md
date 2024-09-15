@@ -38,3 +38,4 @@
 - [x] icon
 - [x] saving is not removing unsaved dot in window bar
 - [x] AppState.window is undefined
+- [x] loading splash

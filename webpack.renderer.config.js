@@ -16,6 +16,10 @@ rules.push({
   test: /\.svg$/i,
   use: ['raw-loader']
 });
+rules.push({
+  test: /\.png$/i,
+  type: 'asset/resource',
+});
 
 module.exports = {
   // Put your normal webpack config below here

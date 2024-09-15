@@ -10,7 +10,7 @@ module.exports = {
       "resources/linux",
       "resources/icon.png"
     ],
-    icon: "./resources/icon"
+    icon: "./resources/icon.ico"
   },
   rebuildConfig: {},
   makers: [
