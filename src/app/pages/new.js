@@ -241,7 +241,7 @@ function onRender() {
     });
     body.querySelector("#button-export-open").addEventListener("click", async () => {
         if (!isOnThisPage()) return;
-        exportOpen();
+        if (await beforeLeaving()) exportOpen();
     });
     body.querySelector("#button-print").addEventListener("click", () => {
         if (!isOnThisPage()) return;

@@ -18,8 +18,13 @@ const createWindow = () => {
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
-    icon: path.join(getResourcesPath(), "icon.png")
+    icon: path.join(getResourcesPath(), "icon.png"),
+    show: false
   });
+  mainWindow.on('ready-to-show', () => {
+    mainWindow.show();
+  });
+  
   state.mainWindow = mainWindow;
   state.window = mainWindow;
 

@@ -38,5 +38,11 @@
 - [x] AppState.window is undefined
 - [x] loading splash
 
+## For 1.0 release
+
+- [x] Bug with exporting unsaved files
+- [ ] Remove visual flash when opening files and on app startup using events 
+- [ ] New icon for file association
+- [ ] Build pipeline
 - [ ] Additional Windows releases
 - [ ] Mac and Linux releases
