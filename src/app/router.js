@@ -55,7 +55,7 @@ class CfxRouter {
     }
 
     // Serve the router.
-    async serve() {
+    async serve(go) {
         // Bind to any location changes. 
         window.addEventListener("click", this.handleLinkClick.bind(this));
         window.addEventListener("popstate", this.handlePopState.bind(this));
@@ -63,7 +63,7 @@ class CfxRouter {
         if (window.sessionStorage.getItem("cfx-router-url")) {
             await this.navigate(window.sessionStorage.getItem("cfx-router-url"));
         } else {
-            await this.navigate("");
+            await this.navigate(go ? go : "");
         }
         
         this.serving = true;

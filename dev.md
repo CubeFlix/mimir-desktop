@@ -41,7 +41,9 @@
 ## For 1.0 release
 
 - [x] Bug with exporting unsaved files
-- [ ] Remove visual flash when opening files and on app startup using events 
+- [x] Remove visual flash when opening files and on app startup using events 
+- [ ] set min-size
+- [ ] Place icon on home screen
 - [ ] New icon for file association
 - [ ] Build pipeline
 - [ ] Additional Windows releases

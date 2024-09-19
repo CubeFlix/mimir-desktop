@@ -8,6 +8,7 @@ import { newDoc, init as newDocInit, onRender as newDocOnRender, onExit as newDo
 import { importDoc, init as importDocInit, onRender as importDocOnRender, onExit as importDocOnExit } from "./pages/import.js";
 import { view, init as viewInit, onRender as viewOnRender, onExit as viewOnExit } from "./pages/view.js";
 import { settings, init as settingsInit, onExit as settingsOnExit } from "./pages/settings.js";
+import { splash } from "./pages/splash.js";
 
 // Mimir app.
 class App {
@@ -24,7 +25,8 @@ class App {
             new CfxRoute("new", newDoc, newDocOnRender, newDocOnExit),
             new CfxRoute("import/:path+", importDoc, importDocOnRender, importDocOnExit),
             new CfxRoute("view/:path+", view, viewOnRender, viewOnExit),
-            new CfxRoute("settings", settings, null, settingsOnExit)
+            new CfxRoute("settings", settings, null, settingsOnExit),
+            new CfxRoute("splash", splash, null)
         ];
         this.routes.forEach((r) => this.router.addRoute(r));
     }
@@ -32,14 +34,18 @@ class App {
     // Initialize the app.
     async init() {
         // Prepare to receive the command line arguments.
-        window.mimirApi.on('argv', function (_, argv) {
+        window.mimirApi.on('argv', async function (_, argv) {
             this.argv = argv;
+            await this.initUI();
             this.handleCommandLine();
         }.bind(this));
 
         // Init.
         await window.mimirApi.init();
+    }
 
+    // Initialize the UI.
+    async initUI() {
         // Init pages.
         await homeInit();
         await favoritesInit();
@@ -48,9 +54,9 @@ class App {
         await importDocInit();
         await viewInit();
         await settingsInit();
-
+        
         // Init router.
-        this.router.serve();
+        this.router.serve("splash");
     }
 
     // Display an error.
@@ -65,17 +71,22 @@ class App {
             const path = this.argv[1];
             if (this.router.serving) {
                 openPath(path);
+                return;
             } else {
                 this.router.onServe = (router) => {
                     openPath(path);
                 };
+                return;
             }
+        } else {
+            router.navigate("");
         }
 
         async function openPath(path) {
             try {
                 await window.mimirApi.info(path);
             } catch (e) {
+                router.navigate("");
                 await window.mimirApi.message({ message: `Could not open ${path}. Check that the file exists and is a valid Mimir document.`, type: "error" });
                 return;
             }
