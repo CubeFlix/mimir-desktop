@@ -2,6 +2,7 @@
 
 import templateHTML from "./settings.html";
 import { elem, loadHTML } from "../../lib.js";
+import { renderVersionInfo } from "../components/version.js"
 
 let template;
 
@@ -54,6 +55,7 @@ const events = ["new", "open", "import"];
 async function settings(url, params, router) {
     const body = elem("div");
     body.append(template.cloneNode(true));
+    renderVersionInfo(body);
 
     window.mimirApi.homeMenu();
 

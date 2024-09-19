@@ -77,14 +77,32 @@ a {
 }
 
 .sidebar {
+  display: flex;
+  flex-direction: column;
   min-width: min(20vw, 150px);
   background-color: #F4F4F4;
   --padding: min(5vw, 60px);
   padding-left: var(--padding);
   padding-right: var(--padding);
-  padding-top: max(var(--padding), 64px);
+  padding-top: max(var(--padding), 44px);
   border-right: 2px solid #eeeeee;
   overflow: clip;
+}
+
+.mimir-title img {
+  font-weight: normal;
+  margin-bottom: 44px;
+  width: max(4.0vw, 100px);
+  margin-top: 0;
+}
+
+.mimir-title {
+  text-align: center;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 .sidebar-body {
@@ -100,7 +118,16 @@ a {
 .sidebar-chooser {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   gap: 20px;
+}
+
+.bottom-bar {
+  padding-bottom: 30px;
+}
+
+#version-info {
+  font-size: 10px;
 }
 
 .sidebar-chooser-option {

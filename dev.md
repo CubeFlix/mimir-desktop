@@ -42,9 +42,9 @@
 
 - [x] Bug with exporting unsaved files
 - [x] Remove visual flash when opening files and on app startup using events 
-- [ ] set min-size
-- [ ] Place icon on home screen
-- [ ] New icon for file association
+- [x] set min-size
+- [x] Place icon on home screen
+- [ ] New icon for file association [NOT POSSIBLE CURRENTLY]
 - [ ] Build pipeline
 - [ ] Additional Windows releases
 - [ ] Mac and Linux releases

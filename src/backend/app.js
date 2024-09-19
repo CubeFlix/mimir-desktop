@@ -15,7 +15,7 @@ const mimirVersion = "v1.0.0";
 function about() {
   const message = `Mimir Desktop`;
   const detail = `Mimir Desktop ${version}
-Built by cubeflix (https://github.com/cubeflix).
+Copyright © cubeflix 2024 (https://github.com/cubeflix).
 Running on Mimir rich text editing library ${mimirVersion}.
 ${existsSync(wkHtmlToPdf) ? `Found wkHTmlToPdf binary version ${wkHtmlToPdfVersion}` : `Could not find wkHtmlToPdf binary.`}
 Powered by Electron.`
